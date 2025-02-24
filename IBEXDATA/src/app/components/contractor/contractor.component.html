@@ -1,0 +1,52 @@
+
+<p-card *ngIf="contractor" header="{{ contractor.contractorName }} קבלן ">
+  <div *ngIf="!editMode">
+    <div class="p-grid">
+      <div class="p-col-12 p-md-6">{{ contractor.contractorName }}:שם הקבלן</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.contractorIdentity">{{ contractor.contractorIdentity }}:מספר ח.פ</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.managementName">{{ contractor.managementName }}:שם מלא של המנהל</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.managementId">{{ contractor.managementId }}:ת.ז</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.address">{{ contractor.address }} :כתובת</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.certificateConsortium">{{ contractor.certificateConsortium }}:ת. האגד</div>
+      <div class="p-col-12 p-md-6" *ngIf="contractor.form50">{{ contractor.form50 }}:טופס 50</div>
+    </div>
+    <button pButton type="button" label="ערוך קבלן" icon="pi pi-pencil" (click)="toggleEditMode()"></button>
+  </div>
+
+  <div *ngIf="editMode">
+    <form [formGroup]="contractorForm" (ngSubmit)="onSave()">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="contractorName">שם הקבלן</label>
+          <input id="contractorName" type="text" pInputText formControlName="contractorName" />
+        </div>
+        <div class="p-field">
+          <label for="contractorIdentity">מספר ח.פ</label>
+          <input id="contractorIdentity" type="text" pInputText formControlName="contractorIdentity" />
+        </div>
+        <div class="p-field">
+          <label for="managementName">שם מלא של המנהל</label>
+          <input id="managementName" type="text" pInputText formControlName="managementName" />
+        </div>
+        <div class="p-field">
+          <label for="managementId">ת.ז</label>
+          <input id="managementId" type="text" pInputText formControlName="managementId" />
+        </div>
+        <div class="p-field">
+          <label for="address">כתובת</label>
+          <input id="address" type="text" pInputText formControlName="address" />
+        </div>
+        <div class="p-field">
+          <label for="certificateConsortium">ת. האגד</label>
+          <input id="certificateConsortium" type="text" pInputText formControlName="certificateConsortium" />
+        </div>
+        <div class="p-field">
+          <label for="form50">טופס 50</label>
+          <input id="form50" type="text" pInputText formControlName="form50" />
+        </div>
+        <button pButton type="submit" label="שמור"></button>
+        <button pButton type="button" label="ביטול" (click)="toggleEditMode()"></button>
+      </div>
+    </form>
+  </div>
+</p-card>
