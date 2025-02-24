@@ -1,5 +1,7 @@
 
 <p-card *ngIf="contractor" header="{{ contractor.contractorName }} קבלן ">
+  <button pButton type="button" label="הוספת קבלן" icon="pi pi-pencil" (click)="toggleEditMode()"></button>
+
   <div *ngIf="!editMode">
     <div class="p-grid">
       <div class="p-col-12 p-md-6">{{ contractor.contractorName }}:שם הקבלן</div>
