@@ -1,1 +1,5 @@
-<p>list-contractors works!</p>
+<button (click)="toggleAddContractorComponent()">
+    {{ showAddContractorComponent ? 'Hide' : 'Show' }} Add Contractor Form
+  </button>
+  
+  <app-add-contractor *ngIf="showAddContractorComponent" (formSaved)="onFormSaved()"></app-add-contractor>

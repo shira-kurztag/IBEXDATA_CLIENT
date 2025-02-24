@@ -1,0 +1,22 @@
+/* Add any styles you need for the component */
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  input {
+    padding: 5px;
+  }
+  
+  button {
+    width: 150px;
+    padding: 10px;
+  }

@@ -1,0 +1,36 @@
+<form [formGroup]="contractorForm" (ngSubmit)="onSubmit()">
+   
+    <div>
+      <label for="contractorName">שם הקבלן</label>
+      <input id="contractorName" formControlName="contractorName" type="text">
+    </div>
+    <div>
+      <label for="contractorIdentity">מספר ח.פ</label>
+      <input id="contractorIdentity" formControlName="contractorIdentity" type="text">
+    </div>
+    <div>
+     
+        <label for="managementName">שם מלא של המנהל</label>
+        <input id="managementName" formControlName="managementName" type="text">
+      <label for="managementId">ת.ז:</label>
+      <input id="managementId" formControlName="managementId" type="number">
+
+
+    </div>
+    <div>
+      <label for="address">כתובת</label>
+      <input id="address" formControlName="address" type="text">
+    </div>
+
+    <div>
+        <label for="certificateConsortium">ת.האגד</label>
+        <input id="certificateConsortium" formControlName="certificateConsortium" type="text">
+      </div>
+      <div>
+        <label for="form50">טופס 50:</label>
+        <input id="form50" formControlName="form50" type="text">
+      </div>
+     
+ 
+    <button type="submit">שמירה</button>
+  </form>
