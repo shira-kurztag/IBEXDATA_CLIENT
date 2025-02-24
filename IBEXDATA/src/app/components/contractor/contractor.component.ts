@@ -6,6 +6,7 @@ import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contractor',
@@ -26,12 +27,12 @@ export class ContractorComponent implements OnInit {
   editMode: boolean = false;
   contractorForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private route: ActivatedRoute,private fb: FormBuilder) {}
 
   srvContractor: ContractorService = inject(ContractorService);
 
   ngOnInit(): void {
-    this.contractorId = 2; // זמני
+    this.contractorId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadContractor();
   }
 

@@ -1,1 +1,8 @@
-<p>list-contractors works!</p>
+
+<p-listbox [options]="contractors" optionLabel="contractorName" (onChange)="onSelectContractor($event.value)">
+    <ng-template let-contractor pTemplate="item">
+      <div class="contractor-item">
+        {{ contractor.contractorName }}
+      </div>
+    </ng-template>
+  </p-listbox>
