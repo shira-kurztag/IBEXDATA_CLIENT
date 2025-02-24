@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/primeng/resources/themes/saga-blue/theme.css');
+@import url('https://unpkg.com/primeng/resources/primeng.min.css');
+@import url('https://unpkg.com/primeicons/primeicons.css');
+
