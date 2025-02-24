@@ -27,7 +27,7 @@ export class ContractorComponent implements OnInit {
   editMode: boolean = false;
   contractorForm!: FormGroup;
 
-  constructor(private route: ActivatedRoute,private fb: FormBuilder) {}
+  constructor(private route: ActivatedRoute, private fb: FormBuilder) {}
 
   srvContractor: ContractorService = inject(ContractorService);
 
@@ -45,13 +45,13 @@ export class ContractorComponent implements OnInit {
 
   initializeForm() {
     this.contractorForm = this.fb.group({
-      contractorName: [this.contractor?.contractorName, Validators.required],
-      contractorIdentity: [this.contractor?.contractorIdentity],
-      managementName: [this.contractor?.managementName],
-      managementId: [this.contractor?.managementId],
-      address: [this.contractor?.address],
-      certificateConsortium: [this.contractor?.certificateConsortium],
-      form50: [this.contractor?.form50]
+      contractorName: [this.contractor?.contractorName, [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$')]],
+      contractorIdentity: [this.contractor?.contractorIdentity, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      managementName: [this.contractor?.managementName, [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$')]],
+      managementId: [this.contractor?.managementId, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      address: [this.contractor?.address, [Validators.required, Validators.pattern('^[a-zA-Z0-9א-ת ]+$')]],
+      certificateConsortium: [this.contractor?.certificateConsortium, [Validators.required, Validators.pattern('^[a-zA-Z0-9א-ת ]+$')]],
+      form50: [this.contractor?.form50, [Validators.required, Validators.pattern('^[a-zA-Z0-9א-ת ]+$')]]
     });
   }
 
@@ -71,7 +71,6 @@ export class ContractorComponent implements OnInit {
       this.srvContractor.updateContractor(updatedContractor).subscribe(() => {
         this.contractor = updatedContractor;
         this.editMode = false;
-       
       });
     }
   }
