@@ -1,5 +1,3 @@
-<button (click)="toggleAddContractorComponent()">
-    {{ showAddContractorComponent ? 'Hide' : 'Show' }} Add Contractor Form
-  </button>
+
+  <button (click)="toggleAddContractorComponent()"> הוספת קבלן</button>
   
-  <app-add-contractor *ngIf="showAddContractorComponent" (formSaved)="onFormSaved()"></app-add-contractor>

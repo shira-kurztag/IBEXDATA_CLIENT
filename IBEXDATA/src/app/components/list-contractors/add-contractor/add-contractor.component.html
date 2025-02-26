@@ -1,36 +1,49 @@
-<form [formGroup]="contractorForm" (ngSubmit)="onSubmit()">
-   
-    <div>
-      <label for="contractorName">שם הקבלן</label>
-      <input id="contractorName" formControlName="contractorName" type="text">
-    </div>
-    <div>
-      <label for="contractorIdentity">מספר ח.פ</label>
-      <input id="contractorIdentity" formControlName="contractorIdentity" type="text">
-    </div>
-    <div>
-     
+<p-card>
+  <form [formGroup]="contractorForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="contractorName">שם הקבלן</label>
+        <input id="contractorName" pInputText formControlName="contractorName" type="text"/>
+        <div *ngIf="contractorForm.get('contractorName')?.hasError('required')" class="error-message">שם הקבלן נדרש</div>
+      </div>
+
+      <div class="p-field">
+        <label for="contractorIdentity">מספר ח.פ</label>
+        <input id="contractorIdentity" pInputText formControlName="contractorIdentity" type="text" />
+        <div *ngIf="contractorForm.get('contractorIdentity')?.hasError('pattern')" class="error-message">מספר ח.פ חייב להיות באורך 9 מספרים</div>
+        <div *ngIf="contractorForm.get('contractorIdentity')?.hasError('required')" class="error-message">מספר ח.פ נדרש</div>
+      </div>
+
+      <div class="p-field">
         <label for="managementName">שם מלא של המנהל</label>
-        <input id="managementName" formControlName="managementName" type="text">
-      <label for="managementId">ת.ז:</label>
-      <input id="managementId" formControlName="managementId" type="number">
+        <input id="managementName" pInputText formControlName="managementName" type="text" />
+      </div>
 
+      <div class="p-field">
+        <label for="managementId">ת.ז:</label>
+        <input id="managementId" pInputText formControlName="managementId" type="number" />
+        <div *ngIf="contractorForm.get('managementId')?.hasError('pattern')" class="error-message">ת.ז חייב להיות באורך 9 מספרים</div>
+      </div>
 
-    </div>
-    <div>
-      <label for="address">כתובת</label>
-      <input id="address" formControlName="address" type="text">
-    </div>
+      <div class="p-field">
+        <label for="address">כתובת</label>
+        <input id="address" pInputText formControlName="address" type="text" />
+      </div>
 
-    <div>
+      <div class="p-field">
         <label for="certificateConsortium">ת.האגד</label>
-        <input id="certificateConsortium" formControlName="certificateConsortium" type="text">
+        <input id="certificateConsortium" pInputText formControlName="certificateConsortium" type="text" />
       </div>
-      <div>
+
+      <div class="p-field">
         <label for="form50">טופס 50:</label>
-        <input id="form50" formControlName="form50" type="text">
+        <input id="form50" pInputText formControlName="form50" type="text"/>
       </div>
-     
- 
-    <button type="submit">שמירה</button>
+
+      <div class="button-group">
+        <button pButton type="submit" label="שמירה" icon="pi pi-check" class="p-mr-2" [disabled]="contractorForm.invalid"></button>
+        <button pButton type="button" label="ביטול" icon="pi pi-times" class="p-mr-2" (click)="toggleEditMode()"></button>
+      </div>
+    </div>
   </form>
+</p-card>

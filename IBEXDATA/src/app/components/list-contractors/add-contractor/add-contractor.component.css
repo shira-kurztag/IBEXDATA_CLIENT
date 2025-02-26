@@ -1,22 +1,23 @@
-/* Add any styles you need for the component */
-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    margin-right: 10px;
-  }
-  
-  input {
-    padding: 5px;
-  }
-  
-  button {
-    width: 150px;
-    padding: 10px;
-  }
+.p-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.p-fluid .p-field {
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  margin-left: 1rem;
+}
+
+.error-message {
+  color: #ff8080; /* Lighter shade of red */
+  font-size: 0.875rem;
+}

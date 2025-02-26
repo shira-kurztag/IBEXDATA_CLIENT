@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Contractors } from '../models/Contractors.model';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
+import { Route, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContractorService {
 
- 
+ constructor(private router:Router){}
   private contractors: Contractors[] = [
     {
       contractorId: 1,
@@ -37,7 +38,21 @@ export class ContractorService {
     },
   ];
 
- 
+  addContractor(c: Contractors): Observable<void> {
+    this.contractors.push(c);
+    console.log("addContractor");
+    console.log(this.contractors.length);
+    this.router.navigate(['/'])
+
+    return of().pipe(
+      catchError((err) => {
+        // כאן ניתן לטפל בשגיאות ולקבל הודעה
+        console.log(err);
+        throw err.error.message; // מחזיר Observable עם ערך null במקרה של שגיאה
+      })
+    );
+  }
+
   getContractorById(id: number): Observable<Contractors | undefined> {
     const contractor = this.contractors.find(c => c.contractorId === id);
     return of(contractor);

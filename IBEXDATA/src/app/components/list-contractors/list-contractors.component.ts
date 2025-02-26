@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddContractorComponent } from '../list-contractors/add-contractor/add-contractor.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-contractors',
@@ -10,13 +11,15 @@ import { AddContractorComponent } from '../list-contractors/add-contractor/add-c
   styleUrls: ['./list-contractors.component.css']
 })
 export class ListContractorsComponent {
+  constructor( private router:Router){}
+
   showAddContractorComponent: boolean = false;
 
   toggleAddContractorComponent() {
-    this.showAddContractorComponent = !this.showAddContractorComponent;
+    this.router.navigate(['/AddContractors'])
   }
 
-  onFormSaved() {
-    this.showAddContractorComponent = false;
-  }
+  // onFormSaved() {
+  //   this.showAddContractorComponent = false;
+  // }
 }
