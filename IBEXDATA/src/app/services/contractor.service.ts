@@ -25,7 +25,7 @@ export class ContractorService {
     },
     {
       contractorId: 2,
-      contractorIdentity: '56354789',
+      contractorIdentity: '203456789',
       contractorName: 'alex mizrachi',
       managementName: 'ABC Management',
       managementId: 1,
@@ -36,8 +36,35 @@ export class ContractorService {
       updateDate: new Date('2025-02-01'),
       contractorStatus: 1
     },
+    {
+      contractorId: 3,
+      contractorIdentity: '213456789',
+      contractorName: ' menachem levi',
+      managementName: 'dan Management',
+      managementId: 2,
+      address: '45 ss St',
+      certificateConsortium: 'Consortium b',
+      form50: 'Form 50 b',
+      insertDate: new Date('2025-01-01'),
+      updateDate: new Date('2025-02-01'),
+      contractorStatus: 1
+    },
+    {
+      contractorId: 4,
+      contractorIdentity: '223456789',
+      contractorName: ' yoav choen',
+      managementName: 'dan Management',
+      managementId: 2,
+      address: '45 ss St',
+      certificateConsortium: 'Consortium b',
+      form50: 'Form 50 b',
+      insertDate: new Date('2025-01-01'),
+      updateDate: new Date('2025-02-01'),
+      contractorStatus: 1
+    },
   ];
 
+<<<<<<< HEAD
   addContractor(c: Contractors): Observable<void> {
     this.contractors.push(c);
     console.log("addContractor");
@@ -53,6 +80,11 @@ export class ContractorService {
     );
   }
 
+=======
+  getContractors(): Observable<Contractors[]> {
+    return of(this.contractors);
+  }
+>>>>>>> fd57b28ba6cd15c2b9d906f312f9584f10f69108
   getContractorById(id: number): Observable<Contractors | undefined> {
     const contractor = this.contractors.find(c => c.contractorId === id);
     return of(contractor);
