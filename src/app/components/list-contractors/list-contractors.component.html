@@ -1,0 +1,30 @@
+
+
+<div class="contractors-container">
+  <div class="flex">
+    <button (click)="toggleAddContractorComponent()"> הוספת קבלן</button>
+    <input  type="text" placeholder="חפוש" onchange="SearChcontractorProject()"/>
+  </div>
+    <h3 >רשימת קבלנים</h3>
+ 
+      <p-select 
+        [options]="contractors" 
+        [(ngModel)]="selectedContractor" 
+        optionLabel="contractorName" 
+        placeholder="בחר קבלן"
+        (onChange)="onSelectContractor($event)">
+        <ng-template let-contractor pTemplate="selectedItem">
+          <div class="contractor-item">
+            {{ contractor.contractorName }}
+          </div>
+        </ng-template>
+        <ng-template let-contractor pTemplate="item">
+          <div class="contractor-item">
+            {{ contractor.contractorName }}
+          </div>
+        </ng-template>
+      </p-select>
+    
+  </div>
+
+  
